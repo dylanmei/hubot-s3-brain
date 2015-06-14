@@ -1,7 +1,10 @@
 hubot-s3-brain
 --------------
 
-An updated version of [github.com/hubot-scripts/s3-brain.coffee](https://github.com/hubot-scripts/s3-brain.coffee) by IrishStyle.
+Store the [hubot](http://hubot.github.com) brain in S3.
+
+This is a lightly modified version of [hubot-scripts/s3-brain.coffee](https://github.com/github/hubot-scripts/blob/master/src/scripts/s3-brain.coffee)
+by IrishStyle. It has been updated to use the [AWS S3 SDK](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html) package.
 
 Take care if using this brain storage with other brain storages.  Others may
 set the auto-save interval to an undesireable value.  Since S3 requests have
