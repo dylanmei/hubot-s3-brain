@@ -1,0 +1,24 @@
+{
+  "name": "hubot-s3-brain",
+  "version": "0.0.1",
+  "description": "Stores the brain in Amazon S3",
+  "author": "Dylan Meissner",
+  "licenses": [],
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hubot",
+    "aws",
+    "s3",
+    "brain"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dylanmei/hubot-s3-brain.git"
+  },
+  "dependencies": {
+    "aws-sdk": "2.x.x"
+  }
+}
