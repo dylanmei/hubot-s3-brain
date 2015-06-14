@@ -15,13 +15,17 @@ by default to reduce cost.
 
 In hubot project repo, run:
 
+```
 npm install hubot-s3-brain --save
+```
 
 Then add hubot-rules to your external-scripts.json:
 
+```
 [
   "hubot-s3-brain"
 ]
+```
 
 ## Configuration
 
