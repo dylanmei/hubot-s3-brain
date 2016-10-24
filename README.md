@@ -36,6 +36,7 @@ S3-brain can be configured with environment variables:
 - `HUBOT_S3_BRAIN_BUCKET` Bucket to store brain in
 - `HUBOT_S3_BRAIN_FILE_PATH` Optional path/file in bucket to store brain at
 - `HUBOT_S3_BRAIN_SAVE_INTERVAL` Optional auto-save interval in seconds
+- `HUBOT_S3_BRAIN_ENDPOINT` Alternative S3 API endpoint
 
 It's highly recommended to use an IAM account explicitly for this s3-brain.
 A sample S3 policy for a bucket named Hubot-Bucket would be:

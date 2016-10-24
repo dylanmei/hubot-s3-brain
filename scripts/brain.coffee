@@ -7,6 +7,7 @@
 #   HUBOT_S3_BRAIN_BUCKET             - Bucket to store brain in
 #   HUBOT_S3_BRAIN_FILE_PATH          - [Optional] Path/File in bucket to store brain at
 #   HUBOT_S3_BRAIN_SAVE_INTERVAL      - [Optional] auto-save interval in seconds
+#   HUBOT_S3_BRAIN_ENDPOINT           - [Optional] Alternative S3 API endpoint
 #
 # Commands:
 #
@@ -68,6 +69,7 @@ module.exports = (robot) ->
   file_path         = process.env.HUBOT_S3_BRAIN_FILE_PATH || "brain-dump.json"
   # default to 30 minutes (in seconds)
   save_interval     = process.env.HUBOT_S3_BRAIN_SAVE_INTERVAL || 30 * 60
+  s3_endpoint       = process.env.HUBOT_S3_BRAIN_ENDPOINT
 
   if !key && !secret && !bucket
     throw new Error('S3 brain requires HUBOT_S3_BRAIN_ACCESS_KEY_ID, ' +
@@ -77,7 +79,14 @@ module.exports = (robot) ->
   if isNaN(save_interval)
     throw new Error('HUBOT_S3_BRAIN_SAVE_INTERVAL must be an integer')
 
-  s3 = new AWS.S3({params: {Bucket: bucket, Key: file_path}})
+  args = {
+    params: {Bucket: bucket, Key: file_path},
+  }
+  if s3_endpoint
+    args.endpoint = new AWS.Endpoint(s3_endpoint)
+    args.s3ForcePathStyle = true
+
+  s3 = new AWS.S3(args)
 
   store_brain = (brain_data, callback) ->
     if !loaded
