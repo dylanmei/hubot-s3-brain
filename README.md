@@ -31,8 +31,8 @@ Then add hubot-rules to your external-scripts.json:
 
 S3-brain can be configured with environment variables:
 
-- `HUBOT_S3_BRAIN_ACCESS_KEY_ID` AWS Access Key ID with S3 permissions
-- `HUBOT_S3_BRAIN_SECRET_ACCESS_KEY` AWS Secret Access Key for ID
+- `HUBOT_S3_BRAIN_ACCESS_KEY_ID` Optional AWS Access Key ID with S3 permissions
+- `HUBOT_S3_BRAIN_SECRET_ACCESS_KEY` Optional AWS Secret Access Key for ID
 - `HUBOT_S3_BRAIN_BUCKET` Bucket to store brain in
 - `HUBOT_S3_BRAIN_FILE_PATH` Optional path/file in bucket to store brain at
 - `HUBOT_S3_BRAIN_SAVE_INTERVAL` Optional auto-save interval in seconds

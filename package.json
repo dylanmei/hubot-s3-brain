@@ -1,6 +1,6 @@
 {
   "name": "hubot-s3-brain",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Stores the brain in Amazon S3",
   "author": "Dylan Meissner",
   "licenses": [],
