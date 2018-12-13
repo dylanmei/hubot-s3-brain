@@ -2,9 +2,9 @@
 #   Stores the brain in Amazon S3.
 #
 # Configuration:
-#   HUBOT_S3_BRAIN_ACCESS_KEY_ID      - AWS Access Key ID with S3 permissions
-#   HUBOT_S3_BRAIN_SECRET_ACCESS_KEY  - AWS Secret Access Key for ID
 #   HUBOT_S3_BRAIN_BUCKET             - Bucket to store brain in
+#   HUBOT_S3_BRAIN_ACCESS_KEY_ID      - [Optional] AWS Access Key ID with S3 permissions
+#   HUBOT_S3_BRAIN_SECRET_ACCESS_KEY  - [Optional] AWS Secret Access Key for ID
 #   HUBOT_S3_BRAIN_FILE_PATH          - [Optional] Path/File in bucket to store brain at
 #   HUBOT_S3_BRAIN_SAVE_INTERVAL      - [Optional] auto-save interval in seconds
 #   HUBOT_S3_BRAIN_ENDPOINT           - [Optional] Alternative S3 API endpoint
@@ -71,9 +71,8 @@ module.exports = (robot) ->
   save_interval     = process.env.HUBOT_S3_BRAIN_SAVE_INTERVAL || 30 * 60
   s3_endpoint       = process.env.HUBOT_S3_BRAIN_ENDPOINT
 
-  if !key && !secret && !bucket
-    throw new Error('S3 brain requires HUBOT_S3_BRAIN_ACCESS_KEY_ID, ' +
-      'HUBOT_S3_BRAIN_SECRET_ACCESS_KEY and HUBOT_S3_BRAIN_BUCKET configured')
+  if !bucket
+    throw new Error('S3 brain requires HUBOT_S3_BRAIN_BUCKET to be configured')
 
   save_interval = parseInt(save_interval)
   if isNaN(save_interval)
